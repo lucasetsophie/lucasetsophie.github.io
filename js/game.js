@@ -29,7 +29,17 @@ canvas.height = canvas.width * heightRatio;
 canvas.width = 400;
 canvas.height = 480;
 ctx.scale(2, 2);
-document.body.append(canvas);
+
+document.getElementById("code").addEventListener("input", (e) => {
+  const code = e.target.value;
+  if (code === "3679") {
+    document.getElementById("controls").style.display = "flex";
+    document.getElementById("lucasito").style.display = "none";
+    document.getElementById("code-container").style.display = "none";
+    document.body.prepend(canvas);
+    init();
+  }
+});
 
 //viewport
 var vX = 0,
@@ -47,7 +57,7 @@ resources.load([
   "sprites/enemyr.png",
 ]);
 
-resources.onReady(init);
+// resources.onReady(init);
 var level;
 var sounds;
 var music;
